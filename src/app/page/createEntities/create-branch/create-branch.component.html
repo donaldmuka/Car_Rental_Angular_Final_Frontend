@@ -1,0 +1,14 @@
+<button (click)="gotoList()" class="btn btn-info">Back</button>
+<div class="container" [hidden]="submitted" style="width: 400px">
+  <form (ngSubmit)="onSubmit()">
+
+    <h3>Create Branch</h3>
+    <select> 
+      <option> rental 1 </option>
+      <option> rental 2 </option>
+      <option> rental 3 </option>
+    </select>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>

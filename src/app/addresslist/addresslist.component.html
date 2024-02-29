@@ -1,0 +1,45 @@
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>Address List</h2>
+    </div>
+    <button style="margin-bottom: 1rem;" (click)="gotoCreate()" class="btn btn-secondary">Add Address</button>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th >Id <i class="bi bi-sort-down"></i></th>
+            <th >Name <i class="bi bi-sort-down"></i></th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let address of listOfAddress">
+            <td>{{ address.city}}</td>
+            <td>{{ address.state }}</td>
+            
+            <td class="action-btn">
+              
+              <!-- <button
+                (click)="editFood(food.id)"
+                class="btn btn-info"
+                style="margin-left: 10px"
+              >
+                Update
+              </button> -->
+              <!-- <button
+                (click)="foodDetails(food.id)"
+                class="btn btn-info"
+                style="margin-left: 10px"
+                data-toggle="modal"
+                data-target="#exampleModal"
+              >
+                Details
+              </button> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

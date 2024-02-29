@@ -1,0 +1,118 @@
+
+<app-navbar></app-navbar>
+
+<div class="container" style="height:auto;">
+<div class="row">
+  <!-- BEGIN SEARCH RESULT -->
+  <div class="col-md-12">
+    <div class="grid search">
+      <div class="grid-body">
+        <div class="row">
+          <!-- BEGIN FILTERS -->
+          <div class="col-md-3">
+            <h2 class="grid-title"><i class="fa fa-filter"></i> Filters</h2>
+            <hr>
+            
+            <!-- BEGIN FILTER BY CATEGORY -->
+            <h4>By model:</h4>
+            <div *ngFor="let item of models" class="checkbox">
+              <label><input [value]="item"  type="checkbox" class="icheck" (click)="addtoSearch(item)"> {{item}}</label>
+            </div>
+            <div class="year">
+              <h4>By year:</h4>
+              <input type="number"class="form-control" [(ngModel)]="searchObject.year" (change)="getCarsByYear()">
+            </div>
+            <h4>By date:</h4>
+            From
+            <div>
+              <input type="date" class="form-control" id="pickUpDate" name="pickUpDate" [(ngModel)]="searchObject.pickUpDate">
+            </div>
+            <input type="hidden" id="dtp_input1" value="">
+            To
+            <div>
+              <input type="date" class="form-control" id="dropOffDate" name="dropOffDate" [(ngModel)]="searchObject.dropOffDate">
+            </div>
+            <h4>By price:</h4>
+            <label for="budget" style="color: black;">Budget</label>
+            <input (change)="getCarsByYear()" type="range" class="form-control-range" id="budget" name="budget" min="21" max="100" value="21" [(ngModel)]="searchObject.budgetValue">
+            <div class="form-text mt-2" style="margin-bottom: 300px;">Current budget: ${{ searchObject.budgetValue}}</div>
+          </div>
+
+          <div class="col-md-9">
+            <h2><i class="fa fa-car" aria-hidden="true"></i> Result {{carlist.length}}</h2>
+            <hr>
+              
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <div class="text-center mt-1 mb-20" *ngIf="carlist.length==0">
+    <label class="error-message "> Sorry but no cars were found for your filters.<div>Try changing the search parameters.
+
+    </div>  </label>
+  </div>
+<tbody *ngFor="let item of carlist">
+    <tr>
+<div class="card-container">
+  <div class="image">
+    <img src="{{item.image}}" alt="">
+  </div>
+  
+  <div class="product">
+      <div class="text" style="font-size: 1.2rem;font-weight: bold;">{{item.brand}} {{item.model}}</div>
+      <br>
+      <div class="text" style="font-size: large;" ><i class="bi bi-calendar3"></i> {{item.yearOfManufacture}}</div>
+      <div class="text" style="font-size: large;"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-car-front-fill" viewBox="0 0 16 16">
+  <path d="M2.52 3.515A2.5 2.5 0 0 1 4.82 2h6.362c1 0 1.904.596 2.298 1.515l.792 1.848c.075.175.21.319.38.404.5.25.855.715.965 1.262l.335 1.679q.05.242.049.49v.413c0 .814-.39 1.543-1 1.997V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.338c-1.292.048-2.745.088-4 .088s-2.708-.04-4-.088V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.892c-.61-.454-1-1.183-1-1.997v-.413a2.5 2.5 0 0 1 .049-.49l.335-1.68c.11-.546.465-1.012.964-1.261a.8.8 0 0 0 .381-.404l.792-1.848ZM3 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2m10 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2M6 8a1 1 0 0 0 0 2h4a1 1 0 1 0 0-2zM2.906 5.189a.51.51 0 0 0 .497.731c.91-.073 3.35-.17 4.597-.17s3.688.097 4.597.17a.51.51 0 0 0 .497-.731l-.956-1.913A.5.5 0 0 0 11.691 3H4.309a.5.5 0 0 0-.447.276L2.906 5.19Z"/>
+</svg> {{item.mileage}} <b>/Km</b></div>
+            <div class="text" style="font-size: large;" ><i class="bi bi-palette"></i> {{item.color}}</div>
+      <div class="text"style="font-size: large;"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-luggage-fill" viewBox="0 0 16 16">
+  <path d="M2 1.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V5h.5A1.5 1.5 0 0 1 8 6.5V7H7v-.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .5.5H4v1H2.5v.25a.75.75 0 0 1-1.5 0v-.335A1.5 1.5 0 0 1 0 13.5v-7A1.5 1.5 0 0 1 1.5 5H2zM3 5h2V2H3z"/>
+  <path d="M2.5 7a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-1 0v-5a.5.5 0 0 1 .5-.5m10 1v-.5A1.5 1.5 0 0 0 11 6h-1a1.5 1.5 0 0 0-1.5 1.5V8H8v8h5V8zM10 7h1a.5.5 0 0 1 .5.5V8h-2v-.5A.5.5 0 0 1 10 7M5 9.5A1.5 1.5 0 0 1 6.5 8H7v8h-.5A1.5 1.5 0 0 1 5 14.5zm9 6.5V8h.5A1.5 1.5 0 0 1 16 9.5v5a1.5 1.5 0 0 1-1.5 1.5z"/>
+</svg> 3 bags
+</div>
+  </div>
+ 
+  <div>
+    <div style="font-size: 1.2rem; font-weight: bold;" class="text text-right mb-2">{{ item.amountPerDay| currency:"EUR" }}</div>
+    <button (click)="goToCheckOut(item.id)" class="btn btn-primary">View Deal</button>
+    <div class="text text-success" style="font-size:18px;padding-top: 0.8rem;">        <i class="checkmark">✓</i>
+Free cancellation</div>
+  </div>
+</div>
+  
+
+
+    </tr>
+  </tbody>
+            </table>
+            </div>
+            <!-- END TABLE RESULT -->
+
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            
+          </div>
+          <!-- END RESULT -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END SEARCH RESULT -->
+</div>
+</div>
+
+<app-footer></app-footer>

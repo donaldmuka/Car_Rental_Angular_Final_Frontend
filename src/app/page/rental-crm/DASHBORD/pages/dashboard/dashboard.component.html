@@ -1,0 +1,180 @@
+<div class="row">
+  <!-- --------------------------------------------------------------------------- -->
+  <!-- Sales Overview -->
+  <!-- --------------------------------------------------------------------------- -->
+  <div class="col-lg-8">
+    <mat-card class="cardWithShadow">
+      <mat-card-content class="p-24">
+        <div class="d-flex w-100">
+          <mat-card-title>Sales Overview</mat-card-title>
+          <div class="m-l-auto">
+            <mat-form-field class="theme-select" appearance="outline">
+              <mat-select value="mar">
+                <mat-option *ngFor="let month of months" [value]="month.value">
+                  {{ month.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <apx-chart
+          [series]="salesOverviewChart.series"
+          [dataLabels]="salesOverviewChart.dataLabels"
+          [chart]="salesOverviewChart.chart"
+          [legend]="salesOverviewChart.legend"
+          [xaxis]="salesOverviewChart.xaxis"
+          [yaxis]="salesOverviewChart.yaxis"
+          [grid]="salesOverviewChart.grid"
+          [stroke]="salesOverviewChart.stroke"
+          [tooltip]="salesOverviewChart.tooltip"
+          [plotOptions]="salesOverviewChart.plotOptions"
+        ></apx-chart>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <!-- --------------------------------------------------------------------------- -->
+  <!-- end Sales overview -->
+  <!-- --------------------------------------------------------------------------- -->
+  <div class="col-lg-4">
+    <div class="row">
+      <!-- --------------------------------------------------------------------------- -->
+      <!-- Yearly Breakup -->
+      <!-- --------------------------------------------------------------------------- -->
+      <div class="col-lg-12 col-sm-6">
+        <mat-card class="cardWithShadow">
+          <mat-card-content class="p-24">
+            <mat-card-title>Yearly Breakup</mat-card-title>
+            <div class="row m-t-24">
+              <div class="col-7">
+                <h4 class="mat-headline-5">$36,358</h4>
+                <div class="d-flex align-items-center m-t-16">
+                  <button
+                    mat-mini-fab
+                    class="bg-light-success text-success shadow-none icon-27"
+                  >
+                    <i-tabler name="arrow-up-right" class="icon-20"></i-tabler>
+                  </button>
+                  <div class="mat-body-1 f-w-600 m-l-12">+9%</div>
+                  <div class="mat-body-1 m-l-4">last year</div>
+                </div>
+
+                <div class="d-flex align-items-center m-t-32">
+                  <div class="d-flex align-items-center">
+                    <i-tabler
+                      name="circle-filled"
+                      class="text-primary icon-12 d-flex"
+                    ></i-tabler>
+                    <div class="mat-body-1 m-l-12">2023</div>
+                  </div>
+                  <div class="d-flex align-items-center m-l-16">
+                    <i-tabler
+                      name="circle-filled"
+                      class="text-light-primary icon-12 d-flex"
+                    ></i-tabler>
+                    <div class="mat-body-1 m-l-12">2022</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-5 d-flex align-items-start">
+                <apx-chart
+                  [series]="yearlyChart.series"
+                  [dataLabels]="yearlyChart.dataLabels"
+                  [chart]="yearlyChart.chart"
+                  [legend]="yearlyChart.legend"
+                  [colors]="yearlyChart.colors"
+                  [stroke]="yearlyChart.stroke"
+                  [tooltip]="yearlyChart.tooltip"
+                  [plotOptions]="yearlyChart.plotOptions"
+                  [responsive]="yearlyChart.responsive"
+                ></apx-chart>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <!-- --------------------------------------------------------------------------- -->
+      <!-- Monthly Earnings -->
+      <!-- --------------------------------------------------------------------------- -->
+      <div class="col-lg-12 col-sm-6">
+        <mat-card class="cardWithShadow">
+          <mat-card-header class="d-flex align-items-center p-x-24">
+            <mat-card-title>Monthly Earnings</mat-card-title>
+            <div class="m-l-auto">
+              <button mat-fab color="accent" class="shadow-none icon-48">
+                <i-tabler
+                  name="currency-dollar"
+                  class="text-white d-flex"
+                ></i-tabler>
+              </button>
+            </div>
+          </mat-card-header>
+          <mat-card-content class="m-b-32 p-x-24">
+            <h4 class="mat-headline-5">$6,820</h4>
+            <div class="d-flex align-items-center m-t-16">
+              <button
+                mat-mini-fab
+                class="bg-light-error text-error shadow-none icon-27"
+              >
+                <i-tabler name="arrow-down-right" class="icon-20"></i-tabler>
+              </button>
+              <div class="mat-body-1 f-w-600 m-l-12">+9%</div>
+              <div class="mat-body-1 m-l-4">last year</div>
+            </div>
+          </mat-card-content>
+          <apx-chart
+            [series]="monthlyChart.series"
+            [dataLabels]="monthlyChart.dataLabels"
+            [chart]="monthlyChart.chart"
+            [legend]="monthlyChart.legend"
+            [colors]="monthlyChart.colors"
+            [stroke]="monthlyChart.stroke"
+            [tooltip]="monthlyChart.tooltip"
+            [plotOptions]="monthlyChart.plotOptions"
+            [responsive]="monthlyChart.responsive"
+          ></apx-chart>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+
+  <div class="">
+    <mat-card class="cardWithShadow">
+      <mat-card-content class="p-24">
+        <mat-card-title>Your car fleat</mat-card-title>
+        <table class="table project-list-table table-nowrap align-middle table-borderless">
+                        <thead>
+                            <tr><th scope="col">Car Image</th>
+                                <th scope="col">Date of car</th>
+                                <th scope="col">Car</th>
+                                <th scope="col">Amount</th>
+                                <th scope="col" style="width: 200px;">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let car of carList">
+                            <tr>
+                               <td><img src="{{car.image}}" alt="image" height="60"/></td>
+                                <td>{{car.dateTo}}</td>
+                                <td>{{car.brand}} {{car.model}}</td>
+                                <td>{{car.amountPerDay|currency}}</td>
+                                <td>
+                                    <ul class="list-inline mb-0">
+                                        <li class="list-inline-item">
+                                            <!-- <button (click)="bookAgain(car.car.id)" class="btn btn-success">Book again</button> -->
+                                        </li>
+                                        <li class="list-inline-item dropdown">
+                                            <a class="text-muted dropdown-toggle font-size-18 px-2" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"><i class="bx bx-dots-vertical-rounded"></i></a>
+                                            <div class="dropdown-menu dropdown-menu-end">
+                                                <a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><a class="dropdown-item" href="#">Something else here</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+        
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

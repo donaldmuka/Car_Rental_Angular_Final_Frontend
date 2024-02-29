@@ -1,0 +1,82 @@
+<app-navbar></app-navbar>
+
+
+<div class="container">
+    <div class="row m-0">
+        <div class="col-lg-7 pb-5 pe-lg-5">
+            <div class="row">
+                <div class="col-12 p-5" style="overflow: hidden;">
+                    <img style="padding: 10px;" src="{{car.image}}"
+                        alt="">
+                </div>
+               
+            </div>
+        </div>
+        <div class="col-lg-5 p-0 ps-lg-4">
+            <div class="row m-0">
+                <div class="col-12 px-4">
+                    <div class="d-flex align-items-end mt-4 mb-2">
+                        <p class="h4" style="font-weight: bold;"><span class="pe-1"></span><span class="pe-1">{{car.brand}} </span><span
+                                class="pe-1">{{car.model}}</span></p>
+                    </div>
+                     <div class="row m-0 bg-light">
+                    <div class="col-md-4 col-6 ps-30 pe-0 my-4">
+                        <p class="text-muted">Mileage</p>
+                        <p class="h5">{{car.mileage}}<span class="ps-1">Km</span></p>
+                    </div>
+                    <div class="col-md-4 col-6  ps-30 my-4">
+                        <p class="text-muted">Model</p>
+                        <p class="h5 m-0">{{car.model}}</p>
+                    </div>
+                    <div class="col-md-4 col-6 ps-30 my-4">
+                        <p class="text-muted">Year</p>
+                        <p class="h5 m-0">{{car.yearOfManufacture}}</p>
+                    </div>
+                    <div class="col-md-4 col-6 ps-30 my-4">
+                        <p class="text-muted">Brand</p>
+                        <p class="h5 m-0">{{car.brand}}</p>
+                    </div>
+                    <div class="col-md-4 col-6 ps-30 my-4">
+                        <p class="text-muted">Color</p>
+                        <p class="h5 m-0">{{car.color}}</p>
+                    </div>
+                    <div class="col-md-4 col-6 ps-30 my-4">
+                        <p class="text-muted">Amount per Day</p>
+                        <p class="h5 m-0">{{car.amountPerDay |currency}}</p>
+                    </div>
+                </div>
+<div style="margin-top: 5px;" class="d-flex justify-content-between mb-2">
+  <p style="font-size: 1.2rem">Days</p>
+  <input class="form-control" inputmode="numeric" pattern="[0-9]" [(ngModel)]="days" style="width: 50px; text-align: center;" type="number" min="1">
+</div>
+
+                    <div class="d-flex justify-content-between mb-3">
+                        <p style="font-size: 1.4rem;font-weight: bold;" >Total</p>
+                        <div class="d-flex align-text-top ">
+                            <span class="fas fa-dollar-sign mt-1 pe-1 fs-14 "></span><span class="h4">{{car.amountPerDay*days}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div [formGroup]="checkoutForm">
+                    
+                 <input *ngIf="!isPresent()" type="email" class="form-control"formControlName="email" id="email" style="width: 250px; margin-left:  15px;font-size: 22px;" placeholder="Enter your email">
+               
+
+                </div>
+                 
+                              <button [disabled]="checkoutForm.invalid" style="margin-left:  15px;" (click)="onSubmit()"  class="btn btn-primary btn-lg"> Continue to Pay </button>
+            </div>
+              <label style="margin-left:  18px;font-size: 22px; margin-top: 2px;"
+        class="text text-danger"
+        for="password"
+        *ngIf="
+          checkoutForm.controls['email'].invalid &&
+          checkoutForm.controls['email'].touched
+        "
+        >Email is required</label
+      >
+        </div>
+    </div>
+</div>
+<app-card></app-card>
+<app-footer></app-footer>

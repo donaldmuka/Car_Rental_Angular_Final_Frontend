@@ -1,0 +1,128 @@
+<!-- 
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>Reservation List</h2>
+    </div>
+    <button style="margin-bottom: 1rem;" (click)="gotoCreate()" class="btn btn-secondary">Add Reservation</button>
+    <div class="panel-body">
+      <table class="table table-striped">
+        
+        <tbody>
+          <tr *ngFor="let reservationList reservationList">
+            <td>{{ reservation.amount}}</td>
+            <td>{{ reservation.client }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+   -->
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/css/boxicons.min.css" integrity="sha512-pVCM5+SN2+qwj36KonHToF2p1oIvoU3bsqxphdOIWMYmgr4ZqD3t5DjKvvetKhXGc/ZG5REYTT6ltKfExEei/Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css" integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous" />
+
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <div class="mb-3">
+                <h5 class="card-title">My reservation list <span class="text-muted fw-normal ms-2"></span></h5>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3">
+                <div>
+                    <ul class="nav nav-pills">
+                        <li class="nav-item">
+                            <a
+                                aria-current="page"
+                                href="#"
+                                class="router-link-active router-link-exact-active nav-link active"
+                                data-bs-toggle="tooltip"
+                                data-bs-placement="top"
+                                title=""
+                                data-bs-original-title="List"
+                                aria-label="List"
+                            >
+                                <i class="bx bx-list-ul"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Grid" aria-label="Grid"><i class="bx bx-grid-alt"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <a (click)="gotoCreate()" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target=".add-new" class="btn btn-primary"><i class="bx bx-plus me-1"></i> Add New</a>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="">
+                <div class="table-responsive">
+                    <table class="table project-list-table table-nowrap align-middle table-borderless">
+                        <thead>
+                            <tr><th scope="col">Car Image</th>
+                                <th scope="col">Date of reservation</th>
+                                <th scope="col">Car</th>
+                                <th scope="col">Amount</th>
+                                <th scope="col" style="width: 200px;">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let reservation of reservationList">
+                            <tr>
+                               <td><img src="{{reservation.car.image}}" alt="image" height="60"/></td>
+                                <td>{{reservation.dateTo}}</td>
+                                <td>{{reservation.car.brand}} {{reservation.car.model}}</td>
+                                <td>{{reservation.amount|currency}}</td>
+                                <td>
+                                    <ul class="list-inline mb-0">
+                                        <li class="list-inline-item">
+                                            <button (click)="bookAgain(reservation.car.id)" class="btn btn-success">Book again</button>
+                                        </li>
+                                        <li class="list-inline-item dropdown">
+                                            <a class="text-muted dropdown-toggle font-size-18 px-2" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"><i class="bx bx-dots-vertical-rounded"></i></a>
+                                            <div class="dropdown-menu dropdown-menu-end">
+                                                <a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><a class="dropdown-item" href="#">Something else here</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row g-0 align-items-center pb-4">
+        <div class="col-sm-6">
+            <div><p class="mb-sm-0">Showing 1 to 10 of 57 entries</p></div>
+        </div>
+        <div class="col-sm-6">
+            <div class="float-sm-end">
+                <ul class="pagination mb-sm-0">
+                    <li class="page-item disabled">
+                        <a href="#" class="page-link"><i class="mdi mdi-chevron-left"></i></a>
+                    </li>
+                    <li class="page-item active"><a href="#" class="page-link">1</a></li>
+                    <li class="page-item"><a href="#" class="page-link">2</a></li>
+                    <li class="page-item"><a href="#" class="page-link">3</a></li>
+                    <li class="page-item"><a href="#" class="page-link">4</a></li>
+                    <li class="page-item"><a href="#" class="page-link">5</a></li>
+                    <li class="page-item">
+                        <a href="#" class="page-link"><i class="mdi mdi-chevron-right"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

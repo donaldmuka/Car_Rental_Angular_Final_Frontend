@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" (click)="goToHomePage()" style="cursor: pointer;"  >Rental Car 2024</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a (click)="goToHomePage()" class="nav-link" routerLink="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link about text-success" routerLink="/aboutus">About me</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" routerLink="/about">Business</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/about">Company</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/about">Help</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/about">About</a>
+          </li> -->
+          <li class="nav-item">
+            <a [ngClass]="false ? 'nav-link btn-login' : 'text-primary nav-link'" style="cursor: pointer;" (click)="goToSignUp()" data-toggle="pill" data-target="#pills-signup"*ngIf="!isUserLoggedIn()">Sign Up</a>
+          </li>
+          <li class="nav-item">
+            <a [ngClass]="false ? 'nav-link btn-login' : 'text-primary nav-link'" style="cursor: pointer;" (click)="goToDashbord()" data-toggle="pill" data-target="#pills-signup"*ngIf="isUserAdmin()">Dashbord</a>
+          </li>
+                    <li class="nav-item">
+            <a [ngClass]="false ? 'nav-link btn-login' : 'text-primary nav-link'" style="cursor: pointer;" (click)="goToProfile()" data-toggle="pill" data-target="#pills-signup"*ngIf="isUserLoggedIn()">My Profile </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn-login" style="cursor: pointer;" (click)="goToLogin()" data-toggle="pill" data-target="#pills-login"*ngIf="!isUserLoggedIn()">Log In</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn-login" style="cursor: pointer;" (click)="logoutUser()" data-toggle="pill" data-target="#pills-login"*ngIf="isUserLoggedIn()">Log Out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>

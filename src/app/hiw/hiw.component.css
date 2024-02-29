@@ -1,0 +1,47 @@
+.container-fluid.how-it-works {
+  background-color: #f8f9fa;
+  /* Set a light background color */
+}
+
+.container-fluid.how-it-works .hiw {
+  font-weight: bold;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.container-fluid.how-it-works h4 {
+  color: #007bff;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  /* Set the color for step titles */
+}
+
+.container-fluid.how-it-works p {
+  color: #292d31;
+  font-size: 1rem;
+}
+
+.container-fluid.how-it-works img {
+  border-radius: 50%;
+  /* Make the images circular */
+  border: 2px solid #007bff;
+  /* Add a border to the images */
+}
+
+.container-fluid.how-it-works .step {
+  padding: 20px;
+  /* Add padding to each step */
+  border-radius: 10px;
+  /* Add border radius to each step */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* Add a subtle box shadow */
+  transition: transform 0.3s ease-in-out;
+  /* Add a smooth transition effect on hover */
+
+}
+
+.container-fluid.how-it-works .step:hover {
+  transform: scale(1.05);
+  /* Enlarge the step on hover */
+}

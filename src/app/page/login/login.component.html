@@ -1,0 +1,100 @@
+<app-navbar></app-navbar>
+
+<section class="vh-100" style="background-color: #eee;">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div class="card text-black" style="border-radius: 25px;">
+          <div class="card-body p-md-5">     
+            <div id="main-wrapper" class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-10">
+                        <div class="card border-0">
+                            <div class="card-body p-0">
+                                <div class="row no-gutters">
+                                    <div class="col-lg-6">
+                                        <div class="p-5">
+                                            <div class="mb-5">
+                                                <h1 class="h4 font-weight-bold text-theme" >Login</h1>
+                                            </div>
+                                
+                                <h4 class="h5 mb-0">Welcome back!</h4>
+
+                                <p class="text-muted mt-2 mb-5">Enter your email address and password to access your profile.</p>
+
+                                <form [formGroup]="loginForm">
+                                    <div class="form-group">
+                                        <label for="email">Username</label>
+                                        <input type="text" formControlName="username" class="form-control" id="email">
+                                    </div>
+                                     <label
+        class="text text-danger"
+        for="username"
+        *ngIf="
+          loginForm.controls['username'].invalid &&
+          loginForm.controls['username'].touched
+        "
+        >Username not valid</label
+      >
+                                    <div class="form-group mb-5">
+                                        <label for="password">Password</label>
+                                        <input type="password"class="form-control" formControlName="password" id="password">
+                                        <label
+        class="text text-danger"
+        for="password"
+        *ngIf="
+          loginForm.controls['password'].invalid &&
+          loginForm.controls['password'].touched
+        "
+        >Password not valid</label
+      >
+                                    </div>
+                                     <button
+      type="submit"
+      class="btn btn-theme"
+      (click)="loginUser(loginForm.value)"
+      [disabled]="loginForm.invalid"
+    >
+      Login
+    </button>
+                                    <a (click)="goToForgetPassword()" class="forgot-link float-right text-primary" style="cursor: pointer;" >Forgot password?</a>
+                                    
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 d-none d-lg-inline-block">
+                            <div class="account-block rounded-right" style="background-image: url('https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y2Fyc3xlbnwwfHwwfHx8MA%3D%3D');">
+                                <div class="overlay rounded-right"></div>
+                                <div class="account-testimonial">
+                                    <h1 style="font-weight: bolder;font-size: 18px;" class="text-white mb-4">Drive Your Experience</h1>
+                                    <p style="font-weight: bold;font-size: 18px;" class="lead text-white">Unleash the Journey with</p>
+                                    <p style="font-weight: bold;font-size: 18px;">Blizz Car Rental</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- end card-body -->
+            </div>
+            <!-- end card -->
+
+            <p class="text-muted text-center mt-3 mb-0">Don't have an account? <a (click)="goToSignUp()" style="cursor: pointer;" class="text-primary ml-1">Sign Up</a></p>
+
+            <!-- end row -->
+
+        </div>
+        <!-- end col -->
+    </div>
+    <!-- Row -->
+</div>
+            
+            
+        
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

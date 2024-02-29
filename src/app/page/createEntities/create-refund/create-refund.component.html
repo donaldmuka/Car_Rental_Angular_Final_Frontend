@@ -1,0 +1,71 @@
+<button (click)="gotoList()" class="btn btn-info">Back</button>
+<div class="container" [hidden]="submitted" style="width: 400px">
+  <form (ngSubmit)="onSubmit()">
+
+    <h3>Create Refund</h3>
+
+    <div class="form-group">
+      <label for="employee_id">Employee id</label>
+      <input
+        type={}
+        class="form-control"
+        id="employee_id"
+        required
+        [(ngModel)]="refund.employee"
+        name="employee_id"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="date_of_return"> Date of return</label>
+      <input
+        type="date"
+        class="form-control"
+        id="date_of_return"
+        required
+        [(ngModel)]="refund.dateOfReturn"
+        name="date_of_return"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="reservation_id">Reservation id</label>
+      <input
+        type={}
+        class="form-control"
+        id="reservation_id"
+        required
+        [(ngModel)]="refund.reservation"
+        name="reservation_id"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="comment">Comment</label>
+      <input
+        type="text"
+        class="form-control"
+        id="comment"
+        required
+        [(ngModel)]="refund.comment"
+        name="comment"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="subcharge">Subcharge</label>
+      <input
+        type="number"
+        class="form-control"
+        id="subcharge"
+        required
+        [(ngModel)]="refund.subcharge"
+        name="subcharge"
+      />
+    </div>
+
+
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>

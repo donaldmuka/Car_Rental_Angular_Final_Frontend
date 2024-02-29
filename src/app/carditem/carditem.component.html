@@ -1,0 +1,20 @@
+<div  class="card-container">
+  <div class="card">
+    <img (click)="gotocheckoutPage(car.id)" src="{{ car.image}}" class="card-img-top" alt="{{ car.image }}" />
+    <div class="card-body">
+      <h5 class="card-title">{{ car.model }}</h5>
+          <div class="heart">
+      <svg (click)="Favorite()" xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="bi bi-heart-fill" viewBox="0 0 16 16">
+ <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+</svg>
+
+    </div>
+      <p class="card-text">{{ car.brand }}</p>
+      <div class="addtoCartdiv">
+        <span class="price">{{ car.amountPerDay|currency }}</span>
+        <a (click)="gotocheckoutPage(car.id)" class="btn btn-primary">Reserve</a> 
+      </div>
+   
+    </div>
+  </div>
+</div>

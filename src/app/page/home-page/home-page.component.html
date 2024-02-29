@@ -1,0 +1,106 @@
+<!-- app.component.html -->
+<app-navbar></app-navbar>
+
+<div class="search-banner bg-primary py-5" id="banner" style="background-image: url('https://images.pexels.com/photos/2612855/pexels-photo-2612855.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); background-size: cover; background-position: center;">
+    <div class="container py-5 my-5">
+        <div class="row text-center pb-4">
+            <div class="col-md-12">
+ <h1 class="display-3 text-white app-title">Crafting <span class="text-primary">Memorable</span> Journeys, One <span class="text-primary">Drive</span> at a Time</h1>
+
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                                    <label for="parkAt" class="form-label">Address</label>
+        <input [(ngModel)]="input" [ngModelOptions]="{ standalone: true }" (input)="googleautocomplete()" type="text" class="form-control mb-3" id="parkAt" placeholder="Enter address or postcode">
+
+
+<div *ngIf="sugestions && sugestions.predictions.length > 0" class="list-group">
+  <a
+    class="list-group-item list-group-item-action"
+    *ngFor="let item of sugestions.predictions"
+    (click)="selectLocation(item.description)"
+  >
+    {{ item.description }}
+  </a>
+
+                               
+                            </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="pickUpDate">Pick Up Date</label>
+                                    <input type="date" class="form-control" id="pickUpDate" name="pickUpDate" [(ngModel)]="searchObject.pickUpDate">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="dropOffDate">Drop Off Date</label>
+                                    <input type="date" class="form-control" id="dropOffDate" name="dropOffDate" [(ngModel)]="searchObject.dropOffDate">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <label for="carType">Transmission</label>
+                                <select class="form-control" id="carType" name="carType">
+                                    <option value="">Any</option>
+                                    <option value="automatic">Automatic</option>
+                                    <option value="semi-automatic">Semi-automatic</option>
+                                    <option value="manual">Manual</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="city">Select City</label>
+                                    <select class="form-control" id="city_id" name="city_id">
+                                        <option value="tirane">Tirane</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="budget">Budget</label>
+                                    <input type="range" class="form-control-range" id="budget" name="budget" min="21" max="100" value="21" [(ngModel)]="searchObject.budgetValue">
+                                    <div class="form-text mt-2">Current budget: ${{ searchObject.budgetValue}}</div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <div class="container">
+                                        <button (click)="search()" type="button" class="btn btn-md mt-4 btn-primary">Search Car</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input type="checkbox" class="form-check-input" id="additionalOptions1">
+                            <label class="form-check-label" for="additionalOptions1">Drop Car Off at Different Location</label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input (click)="buttonChecked()" checked value="checkbutton" type="checkbox" id="additionalOptions2">
+                            <label class="form-check-label" for="additionalOptions2">
+                                Driver age between 30-65 ?
+                                <label [hidden]="checkedbutton"> Driver's Age </label>
+                                <div class="d-inline-block" style="width: 70px;">
+                                    <input value="18" [hidden]="checkedbutton" type="number" id="drivers_age" class="form-control">
+                                </div>
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-toprentals></app-toprentals>
+<app-card></app-card>
+<app-hiw></app-hiw>
+
+<app-footer></app-footer>
+

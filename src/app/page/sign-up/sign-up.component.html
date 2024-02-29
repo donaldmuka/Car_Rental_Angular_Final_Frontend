@@ -1,0 +1,90 @@
+<app-navbar></app-navbar>
+
+
+<section class="vh-100" style="background-color: #eee;">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-lg-12 col-xl-11">
+          <div class="card text-black" style="border-radius: 25px;">
+            <div class="card-body p-md-5">
+              <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+  
+                  <div class="mb-5">
+                   <h1>Sign up</h1>
+                </div>
+  
+                  <form [formGroup]="signupForm" class="mx-1 mx-md-4">
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <input type="text" formControlName="username"  placeholder="Username" id="m3Example1c" class="form-control" />
+                      </div>
+                    </div>
+  
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <input type="text" formControlName="firstname"  placeholder="First name" id="m3Example1c" class="form-control" />
+                      </div>
+                    </div>
+
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <input 
+                        formControlName="lastname" type="text" placeholder="Last name" id="formmple1c" class="form-control" />
+                      </div>
+                    </div>
+  
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <input type="email"formControlName="email"   placeholder="e-mail" id="form3Exam3c" class="form-control" />
+                      </div>
+                    </div>
+  
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <input type="password" formControlName="password"  placeholder="password" id="form3Examp" class="form-control" />
+                      </div>
+                    </div>
+                    <!-- <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                      <div class="form-outline flex-fill mb-0">
+                        <input type="text"  placeholder="address" id="tyer" class="form-control" />
+                      </div>
+                    </div> -->
+
+            
+  
+                    
+  
+                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                      <button type="button" [disabled]="signupForm.invalid" (click)="saveCustomer(signupForm.value)" class="btn btn-primary btn-lg">Register</button>
+                    </div>
+  
+                  </form>
+
+                  <div class="form-check d-flex justify-content-center mb-5">
+            
+                    <label class="form-check-label" for="form2Example3">
+                      Alredy have an account?  <a (click)="goToLogin()" class="text-primary ml-1" style="cursor: pointer;">Log in</a>
+                    </label>
+                  </div>
+  
+                </div>
+                <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+  
+                  <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2Fyc3xlbnwwfHwwfHx8MA%3D%3D"
+                    class="img-fluid" alt="Sample image">
+  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

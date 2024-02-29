@@ -1,0 +1,38 @@
+/* Custom styling for the footer */
+footer {
+  background-color: #343a40;
+  /* Dark background color */
+  color: #ffffff;
+  /* Light text color */
+  padding: 20px 0;
+  /* Adjust padding as needed */
+}
+
+/* Center text in the footer */
+footer h4 {
+  text-align: center;
+}
+
+/* Style the form input and button */
+form input[type="email"] {
+  width: 100%;
+  padding: 8px;
+  margin-right: 8px;
+  box-sizing: border-box;
+}
+
+form button {
+  padding: 8px 16px;
+}
+
+/* Override Bootstrap utility classes for more specific styling */
+footer.container {
+  max-width: 1200px;
+  /* Set maximum width for better readability */
+}
+
+/* Add margin to the top of the paragraph for better spacing */
+footer p {
+  margin-top: 10px;
+  font-size: 1rem;
+}

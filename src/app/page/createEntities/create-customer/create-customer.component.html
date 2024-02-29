@@ -1,0 +1,56 @@
+<button (click)="gotoList()" class="btn btn-info">Back</button>
+<div class="container" [hidden]="submitted" style="width: 400px">
+  <form (ngSubmit)="onSubmit()">
+    
+<h3>Create Customer</h3>
+
+    <div class="form-group">
+      <label for="first_name">First name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="first_name"
+        required
+        [(ngModel)]="customer.firstName"
+        name="first_name"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="email">e-mail</label>
+      <input
+        type="text"
+        class="form-control"
+        id="email"
+        required
+        [(ngModel)]="customer.email"
+        name="e-mail"
+      />
+    </div>
+     <div class="form-group">
+      <label for="email">Password</label>
+      <input
+        type="text"
+        class="form-control"
+        id="email"
+        required
+        [(ngModel)]="customer.password"
+        name="e-mail"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="address_id">Address</label>
+      <input
+        type={}
+        class="form-control"
+        id="address_id"
+        required
+        [(ngModel)]="customer.address"
+        name="Address"
+      />
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+  </div>

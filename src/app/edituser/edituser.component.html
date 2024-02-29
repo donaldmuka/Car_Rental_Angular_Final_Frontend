@@ -1,0 +1,59 @@
+
+                <div class="card">
+                    <div [formGroup]="editUserForm"  class="card-body">
+
+
+                        <div class="row mb-3">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Name</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <input type="text" class="form-control" formControlName="firstname">
+                            </div>
+                        </div>
+
+
+                        <div class="row mb-3">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Last Name</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <input type="text" class="form-control"  formControlName="lastname" >
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Email</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <input type="text" class="form-control"  formControlName="email" >
+                            </div>
+                        </div>
+
+                       
+                       
+                        <div class="row mb-3">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Password</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <input type="text" class="form-control" placeholder="New Password"  formControlName="password" >
+                            </div>
+                        </div>
+
+
+                      
+
+
+                        <div class="row">
+                            <div class="col-sm-3"></div>
+                            <div class="col-sm-9 text-secondary">
+                                <input type="button" class="btn btn-primary px-4" [disabled]="editUserForm?.invalid" (click)="goBackToUserProfile(editUserForm?.value)" value="Save Changes">
+                            </div>
+                        </div>
+
+                        
+                    </div>
+                </div>
+     

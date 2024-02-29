@@ -1,0 +1,33 @@
+<button (click)="gotoList()" class="btn btn-info">Back</button>
+<div class="container" [hidden]="submitted" style="width: 400px">
+  <form (ngSubmit)="onSubmit()">
+
+    <h3>Create Departament</h3>
+
+    <div class="form-group">
+      <label for="branch_id">Branch id</label>
+      <input
+        type={}
+        class="form-control"
+        id="branch_id"
+        required
+        [(ngModel)]="departament.branch"
+        name="branch_id"
+      />
+    </div>
+
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          required
+          [(ngModel)]="departament.name"
+          name="name"
+        />
+      </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>

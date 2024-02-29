@@ -1,0 +1,14 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h1 class="fw-bolder fs-3 mt-4 app-title">Explore Our <span class="text text-primary">Featured</span> Cars</h1>
+    </div>
+  </div>
+  
+  <div class="row gy-2">
+    <div *ngFor="let car of Cars" class="col-12 col-md-6 col-lg-4 col-xl-3">
+      <app-carditem class="p-2" [car]="car"></app-carditem>
+    </div>
+  </div>
+</div>
